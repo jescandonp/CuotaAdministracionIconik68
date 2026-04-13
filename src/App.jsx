@@ -1,16 +1,21 @@
 import React, { useState, useMemo } from 'react';
-import { 
-  Search, 
-  Building2, 
-  ArrowUpDown, 
-  ChevronDown, 
-  ChevronUp, 
+import {
+  Search,
+  Building2,
+  ArrowUpDown,
+  ChevronDown,
+  ChevronUp,
   CreditCard,
   CheckCircle2,
   TrendingDown,
   Info,
   ShieldCheck,
-  AlertCircle
+  AlertCircle,
+  FileText,
+  BookOpen,
+  ExternalLink,
+  AlertTriangle,
+  Code2
 } from 'lucide-react';
 
 /**
@@ -893,24 +898,139 @@ const App = () => {
         </div>
       </div>
 
-      {/* Footer */}
-      <div className="max-w-6xl mx-auto mt-16 flex flex-col md:flex-row justify-between items-center gap-8 px-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-        <div className="flex items-center gap-6">
-          <div className="w-14 h-14 bg-slate-800 rounded-2xl flex items-center justify-center font-black text-white italic text-xl">I68</div>
-          <div className="space-y-1 text-center md:text-left">
-            <p className="text-[11px] font-black uppercase tracking-widest text-slate-900">Iconik 68 - Gestión Administrativa</p>
-            <p className="text-xs font-medium text-slate-500 tracking-tight">Cálculos proyectados para la vigencia 2026.</p>
+      {/* ── SECCIÓN: DOCUMENTOS DE REFERENCIA ── */}
+      <div className="max-w-6xl mx-auto mt-20 px-8">
+
+        {/* Llamado a la acción */}
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-slate-900 via-slate-800 to-blue-950 p-10 md:p-14 mb-10 shadow-2xl">
+          {/* Decoración de fondo */}
+          <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-blue-600/10 blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-10 -left-10 w-48 h-48 rounded-full bg-teal-500/10 blur-2xl pointer-events-none" />
+
+          <div className="relative flex flex-col md:flex-row items-start md:items-center gap-8">
+            <div className="w-16 h-16 rounded-2xl bg-amber-400 flex items-center justify-center shadow-xl shrink-0">
+              <AlertTriangle size={28} className="text-slate-900" strokeWidth={2.5} />
+            </div>
+            <div className="flex-1 space-y-3">
+              <p className="text-[11px] font-black uppercase tracking-widest text-amber-400">Antes de decidir sobre el presupuesto</p>
+              <h2 className="text-2xl md:text-3xl font-black text-white leading-tight">
+                Infórmate al 100% sobre el proyecto
+              </h2>
+              <p className="text-slate-300 text-sm md:text-base leading-relaxed max-w-2xl">
+                Iconik 68 Club Residencial es un proyecto con un nivel de amenidades que exige una operación de alta calidad.
+                Revisa el manual del inmueble para conocer <span className="text-white font-bold">todo lo que se va a entregar y operar</span>,
+                y luego analiza los escenarios de presupuesto. Un presupuesto insuficiente pone en riesgo la operación, el
+                mantenimiento y el valor de tu inversión.
+              </p>
+            </div>
           </div>
         </div>
-        
-        <div className="flex flex-col md:flex-row items-center gap-10">
-          <div className="flex items-center gap-3">
-            <div className="w-3 h-3 rounded-full bg-emerald-500 shadow-lg shadow-emerald-400"></div>
-            <span className="text-[11px] font-black uppercase text-slate-600 tracking-widest">Base de Datos: {INITIAL_DATA.length} Unidades</span>
+
+        {/* Tarjetas de documentos */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+
+          {/* Doc 1 – Manual del Propietario */}
+          <a
+            href="/manual-propietario-iconik68.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col justify-between bg-white rounded-[2rem] border-2 border-slate-100 hover:border-teal-400 shadow-lg hover:shadow-2xl transition-all duration-300 p-10 cursor-pointer"
+          >
+            <div className="flex items-start gap-5 mb-8">
+              <div className="w-14 h-14 rounded-2xl bg-teal-50 border-2 border-teal-100 flex items-center justify-center shrink-0 group-hover:bg-teal-500 group-hover:border-teal-500 transition-all duration-300">
+                <BookOpen size={22} className="text-teal-600 group-hover:text-white transition-colors duration-300" />
+              </div>
+              <div className="space-y-1">
+                <p className="text-[10px] font-black uppercase tracking-widest text-teal-600">Manual del Propietario</p>
+                <h3 className="text-lg font-black text-slate-800 leading-tight">Manual de Uso y Mantenimiento del Inmueble</h3>
+              </div>
+            </div>
+            <p className="text-sm text-slate-500 leading-relaxed mb-8">
+              Documento oficial de <span className="font-bold text-slate-700">Constructora Capital</span> con las especificaciones
+              completas del proyecto, todas las amenidades del Club Residencial, reglamentos de propiedad horizontal,
+              servicios comunes, zonas comunes y guías de mantenimiento. <span className="font-bold text-slate-700">Léelo antes de votar.</span>
+            </p>
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-black uppercase tracking-widest text-slate-400">PDF · Iconik 68 Club Residencial</span>
+              <div className="flex items-center gap-2 text-teal-600 font-black text-sm group-hover:gap-3 transition-all duration-200">
+                Ver documento <ExternalLink size={14} />
+              </div>
+            </div>
+          </a>
+
+          {/* Doc 2 – Borrador Presupuesto 2026 */}
+          <a
+            href="/borrador-presupuesto-2026.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col justify-between bg-white rounded-[2rem] border-2 border-slate-100 hover:border-blue-500 shadow-lg hover:shadow-2xl transition-all duration-300 p-10 cursor-pointer"
+          >
+            <div className="flex items-start gap-5 mb-8">
+              <div className="w-14 h-14 rounded-2xl bg-blue-50 border-2 border-blue-100 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:border-blue-600 transition-all duration-300">
+                <FileText size={22} className="text-blue-600 group-hover:text-white transition-colors duration-300" />
+              </div>
+              <div className="space-y-1">
+                <p className="text-[10px] font-black uppercase tracking-widest text-blue-600">Administración · 2026</p>
+                <h3 className="text-lg font-black text-slate-800 leading-tight">Borrador de Presupuesto 2026 – Escenarios Detallados</h3>
+              </div>
+            </div>
+            <p className="text-sm text-slate-500 leading-relaxed mb-8">
+              Documento enviado por la administración con los <span className="font-bold text-slate-700">dos escenarios presupuestales</span> proyectados para 2026:
+              Opción 1 <span className="font-bold text-slate-700">($4,044 M)</span> con reservas para fachada y cubierta,
+              y Opción 2 <span className="font-bold text-slate-700">($3,843 M)</span> sin dichas reservas.
+              Analiza las implicaciones de cada escenario.
+            </p>
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] font-black uppercase tracking-widest text-slate-400">PDF · Enviado por la Administración</span>
+              <div className="flex items-center gap-2 text-blue-600 font-black text-sm group-hover:gap-3 transition-all duration-200">
+                Ver documento <ExternalLink size={14} />
+              </div>
+            </div>
+          </a>
+        </div>
+
+        {/* Nota de contexto */}
+        <div className="flex items-start gap-4 bg-amber-50 border border-amber-200 rounded-2xl px-8 py-6 mb-6">
+          <Info size={18} className="text-amber-600 mt-0.5 shrink-0" />
+          <p className="text-sm text-amber-800 leading-relaxed">
+            <span className="font-black">¿Por qué importa la Opción 1?</span> — La Opción 1 incluye la reserva legal para mantenimiento de fachada y cubiertas
+            (Ley 675 de 2001). Optar por la Opción 2 implica postergar esos costos, pero <span className="font-bold">no eliminarlos</span>:
+            la copropiedad deberá asumir esos gastos en el futuro, posiblemente con cuotas extraordinarias.
+          </p>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="max-w-6xl mx-auto mt-14 mb-8 px-8">
+        <div className="border-t border-slate-100 pt-10 flex flex-col md:flex-row justify-between items-center gap-8 opacity-60 hover:opacity-100 transition-all duration-500">
+          <div className="flex items-center gap-6">
+            <div className="w-14 h-14 bg-slate-800 rounded-2xl flex items-center justify-center font-black text-white italic text-xl">I68</div>
+            <div className="space-y-1 text-center md:text-left">
+              <p className="text-[11px] font-black uppercase tracking-widest text-slate-900">Iconik 68 – Gestión Administrativa</p>
+              <p className="text-xs font-medium text-slate-500 tracking-tight">Cálculos proyectados para la vigencia 2026.</p>
+            </div>
           </div>
-          <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest">
-            Actualizado: {new Date().toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric' })}
-          </span>
+
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="flex items-center gap-3">
+              <div className="w-3 h-3 rounded-full bg-emerald-500 shadow-lg shadow-emerald-400"></div>
+              <span className="text-[11px] font-black uppercase text-slate-600 tracking-widest">Base de Datos: {INITIAL_DATA.length} Unidades</span>
+            </div>
+            <span className="text-[11px] font-black text-slate-400 uppercase tracking-widest">
+              Actualizado: {new Date().toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric' })}
+            </span>
+          </div>
+        </div>
+
+        {/* Crédito de desarrollo */}
+        <div className="mt-6 flex flex-col md:flex-row items-center justify-center gap-2 py-4 border-t border-slate-100">
+          <div className="flex items-center gap-2 text-slate-400">
+            <Code2 size={13} />
+            <span className="text-[11px] font-bold tracking-wide">Desarrollado por</span>
+            <span className="text-[11px] font-black text-slate-600 tracking-wide">Juan Manuel Escandón</span>
+            <span className="text-slate-300 mx-1">·</span>
+            <span className="text-[11px] font-bold text-slate-400 tracking-wide">2026</span>
+          </div>
         </div>
       </div>
     </div>
