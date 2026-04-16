@@ -811,7 +811,7 @@ const App = () => {
                 </th>
                 <th className="px-4 py-8 text-right">Coeficiente</th>
                 <th className="px-6 py-8 text-right bg-slate-50/50 text-slate-500 italic">
-                  <div className="flex items-center justify-end gap-2 text-slate-400"><History size={12}/> Cuota Actual 2025</div>
+                  <div className="flex items-center justify-end gap-2 text-slate-400"><History size={12}/> Cuota Actual 2026</div>
                 </th>
                 <th className={`px-6 py-8 text-right transition-all border-x border-slate-50 ${budgetOption === 'CUOTA_OPCION1' ? 'bg-slate-900 text-white font-black' : 'text-slate-400 opacity-60'}`}>
                   Opción 1 (+61%)
